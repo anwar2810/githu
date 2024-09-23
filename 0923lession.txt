@@ -1,0 +1,34 @@
+LF 到 CRLF 警告：
+
+问题：由于系统不同（Linux/macOS 使用 LF，Windows 使用 CRLF），Git 警告在某些文件中行尾符号会发生变化。
+解决方案：可以通过 .gitattributes 文件控制行尾符号：
+bash
+複製程式碼
+*.csv text eol=lf
+*.js text eol=lf
+*.rtf text eol=crlf
+你也可以通过配置 core.autocrlf 自动处理行尾符号：
+bash
+複製程式碼
+git config core.autocrlf true
+索引 .xlsx 文件时的错误：
+
+问题：OneDrive/1219 - 複本.xlsx 文件在索引时发生错误，可能由于权限问题或文件正被占用。
+解决方案：
+确保该文件未被其他程序使用。
+手动重新添加该文件：
+bash
+複製程式碼
+git add OneDrive/1219 - 複本.xlsx
+禁用嵌套仓库提示：
+
+问题：Git 每次都提示嵌套仓库。
+解决方案：可以通过以下命令禁用这个提示：
+bash
+複製程式碼
+git config advice.addEmbeddedRepo false
+相关命令备忘：
+添加子模块：git submodule add <url>
+移除索引中的嵌套仓库：git rm --cached <path>
+自动处理行尾符号：git config core.autocrlf true
+禁用嵌套仓库提示：git config advice.addEmbeddedRepo false

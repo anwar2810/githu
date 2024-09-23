@@ -1,0 +1,80 @@
+.gitignore 文件是一个告诉 Git 哪些文件或目录应该被忽略、不追踪的文件。通常，我们会将不需要版本控制的文件（如编译生成的文件、系统文件、敏感数据等）写入 .gitignore 中。
+
+.gitignore 操作流程：
+创建 .gitignore 文件： 在项目的根目录下，创建一个名为 .gitignore 的文件。
+
+bash
+複製程式碼
+touch .gitignore
+编辑 .gitignore 文件： 在 .gitignore 文件中，写入你希望 Git 忽略的文件或目录。比如：
+
+bash
+複製程式碼
+# 忽略所有的 .log 文件
+*.log
+
+# 忽略 tmp 目录
+/tmp/
+
+# 忽略所有 .DS_Store 文件
+.DS_Store
+检查 .gitignore 文件的效果： 添加 .gitignore 文件后，你可以通过 git status 查看 Git 是否正确忽略了指定的文件。
+
+提交 .gitignore 文件： 一旦 .gitignore 文件设置完成并生效，你可以将它提交到仓库中：
+
+bash
+複製程式碼
+git add .gitignore
+git commit -m "添加 .gitignore 文件"
+git push origin <branch-name>
+.gitignore 文件的规则：
+忽略某个文件类型：
+例如，忽略所有 .log 文件：
+
+bash
+複製程式碼
+*.log
+忽略特定目录：
+忽略 temp 目录中的所有内容：
+
+bash
+複製程式碼
+/temp/
+忽略某个文件，但保留子目录中的同名文件：
+忽略主目录中的 config.json，但不忽略子目录中的同名文件：
+
+arduino
+複製程式碼
+/config.json
+!subdir/config.json
+忽略特定模式：
+忽略特定后缀、文件夹、文件等：
+
+bash
+複製程式碼
+# 忽略所有以 .bak 结尾的文件
+*.bak
+.gitignore 的示例：
+gitignore
+複製程式碼
+# Node.js 项目示例
+node_modules/
+npm-debug.log
+.env
+
+# Python 项目示例
+__pycache__/
+*.py[cod]
+env/
+注意事项：
+如果你已经将某个文件提交到了 Git 仓库，之后再将它添加到 .gitignore 中是不会自动生效的。你需要先从仓库中移除该文件：
+bash
+複製程式碼
+git rm --cached <file>
+通过 .gitignore，可以轻松管理不需要跟踪的文件，保持仓库干净整洁。
+
+
+
+
+
+
